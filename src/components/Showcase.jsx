@@ -6,6 +6,7 @@ var React = require('react');
 var ShoppingCart = require('react');
 
 var Item = React.createClass({
+    // todo add 'Buy' button and bind it to Event system
     render() {
         return(
             <div>
