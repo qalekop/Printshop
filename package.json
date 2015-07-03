@@ -1,0 +1,25 @@
+{
+  "name": "Printshop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/main.js",
+  "private": true,
+  "scripts": {
+    "build": "browserify -t [ reactify --es6 ] src/main.js > ./public/js/compiled.js"
+  },
+  "author": "qalekop",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.11.0",
+    "exif-parser": "*",
+    "googlemaps": "0.1.20",
+    "async": "*",
+    "react": "^0.13.2"
+  },
+  "devDependencies": {
+    "browserify": "^9.0.8",
+    "reactify": "^1.1.0",
+    "uglify-js": "^2.4.20",
+    "watchify": "^3.1.2"
+  }
+}
