@@ -2,23 +2,49 @@
  * Created by akopylov on 03.07.2015.
  */
 var React = require('react');
+var AltContainer = require('alt/AltContainer');
 
-var ShoppingCart = require('react');
+var ShoppingCart = require('./Shoppingcart');
+var ItemStore = require('../flux/stores/ItemStore');
 
 var Item = React.createClass({
     // todo add 'Buy' button and bind it to Event system
     render() {
+        console.log('Item.render');
         return(
-            <div>
+            <li>
                 <img src={this.props.src}/>
                 <span>{this.props.descr}</span>
-            </div>
+            </li>
+        )
+    }
+});
+
+var Items = React.createClass({
+
+    render() {
+        console.log('Items.render');
+        return (
+            <ul>
+                {this.props.items.map((item, i) => {
+                    return (
+                        <Item key={item.id} src={item.src} descr={item.descr}/>
+                    );
+                })}
+            </ul>
         )
     }
 });
 
 var Showcase = React.createClass({
+
+    componentDidMount() {
+        console.log('Showcase.componentDidMount()');
+        ItemStore.fetchItems();
+    },
+
     render() {
+        console.log('Showcase.render');
         var outerClassName = 'col-md-5';
         return (
             <div className={outerClassName}>
@@ -32,13 +58,9 @@ var Showcase = React.createClass({
                     diam luctus orci, vitae commodo ante arcu in nunc. Ut ornare neque in tellus pulvinar,
                     eu ultrices est consectetur.
                 </div>
-                <ul>
-                    {this.props.items.map((item, i) => {
-                        return (
-                            <li><Item /></li>
-                        );
-                    })}
-                </ul>
+                <AltContainer store={ItemStore}>
+                    <Items/>
+                </AltContainer>
                 <ShoppingCart />
             </div>
         )

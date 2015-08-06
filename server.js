@@ -13,7 +13,7 @@ var app = express();
 app.use(express.static(__dirname + '/public'));
 
 var images = [];
-var fnPrefix = __dirname + '/public/assets/gallery';
+var fnPrefix = __dirname + '/public/gallery';
 var files = fs.readdirSync(fnPrefix);
 var file
     , exif

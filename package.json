@@ -14,7 +14,8 @@
     "exif-parser": "*",
     "googlemaps": "0.1.20",
     "async": "*",
-    "react": "^0.13.2"
+    "react": "^0.13.2",
+    "alt": "^0.16.0"
   },
   "devDependencies": {
     "browserify": "^9.0.8",

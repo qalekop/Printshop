@@ -10,7 +10,7 @@ var Printshop = React.createClass({
 
     getInitialState() {
         return {
-            preview: {}
+            preview: {src: '/gallery/P1020701.jpg', descr: 'This is a description'}
         }
     },
 

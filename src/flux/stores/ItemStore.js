@@ -10,14 +10,19 @@ var ItemSource = require('../sources/ItemSource');
 class ItemStore {
     constructor() {
         this.items = [];
+        this.errorMessage = null;
 
         this.bindListeners({
-            handleGetItems: ItemActions.FETCH_ACTIONS
+            handleGetItems: ItemActions.FETCH_ITEMS
         });
+
+        this.exportAsync(ItemSource);
     }
 
-    handleGetItems() {
-        this.items = [];
+    handleGetItems(items) {
+        console.log('ItemStore.handleGetItems');
+        this.items = items;
+        this.errorMessage = null;
     }
 }
 

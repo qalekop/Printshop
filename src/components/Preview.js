@@ -5,6 +5,7 @@ var React = require('react');
 
 var Preview = React.createClass({
     render() {
+        console.log('Preview.render');
         var outerClassName = 'col-md-3 col-md-offset-2';
         if (!this.props.src) {
             return(
