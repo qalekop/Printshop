@@ -9,7 +9,7 @@ var ItemSource = {
         return {
             remote() {
                 return new Promise(function(resolve, reject) {
-                    resolve([{id: 0, src: '/gallery/P1020607.jpg', descr: 'This is a description'}]);
+                    resolve([{id: 0, src: '/thumbnails/P1000315.jpg', descr: 'This is a description'}]);
                 });
             },
 
