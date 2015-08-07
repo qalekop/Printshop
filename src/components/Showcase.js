@@ -10,10 +10,11 @@ var ItemStore = require('../flux/stores/ItemStore');
 var Item = React.createClass({
     // todo add 'Buy' button and bind it to Event system
     render() {
-        console.log('Item.render');
+        console.log('Item.render: ' + this.props.src);
+        var thumbnailSource = '/thumbnails/' + this.props.src;
         return(
             <li>
-                <img src={this.props.src}/>
+                <img src={thumbnailSource}/>
                 <span>{this.props.descr}</span>
             </li>
         )
@@ -45,11 +46,11 @@ var Showcase = React.createClass({
 
     render() {
         console.log('Showcase.render');
-        var outerClassName = 'col-md-5';
+        var outerClassName = 'col-md-6';
         return (
             <div className={outerClassName}>
                 <h2>
-                    Praesent consequat neque vitae ante dapibus, at vestibulum velit molestie. Mauris tincidunt quam accumsan accumsan condimentum.
+                    Praesent consequat.
                 </h2>
                 <div className="content">
                     Curabitur posuere posuere facilisis. Aliquam sodales sagittis purus vel luctus.

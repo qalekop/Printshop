@@ -13,7 +13,7 @@ var app = express();
 app.use(express.static(__dirname + '/public'));
 
 var images = [];
-var fnPrefix = __dirname + '/public/gallery';
+var fnPrefix = __dirname + '/public/thumbnails';
 var files = fs.readdirSync(fnPrefix);
 var file
     , exif
@@ -46,24 +46,10 @@ app.get('/', function (req, res) {
     res.sendFile('index.html', {root: __dirname});
 });
 
-app.get("/image/", function(req, res) {
-    var i = Number(req.query.index) + (req.query.dir == 'next' ? 1 : -1);
-    if (i < 0) {
-        i = images.length - 1;
-    } else if (i >= images.length) {
-        i = 0;
-    }
-    var image = images[i];
-    //setTimeout(function() {
-            res.json({
-                source: image.name,
-                alt: image.endroit,
-                index: i,
-                address: image.endroit,
-                empty: !image.waitForName,
-                lat: image.latitude,
-                lng: image.longitude
-            });
-        //},
-        //2000);
+app.get('/images/', function(req, res) {
+    var content = [];
+    images.forEach(function(image, i) {
+        content[i] = {'src': image.name, 'descr': image.endroit};
+    });
+    res.json(content);
 });

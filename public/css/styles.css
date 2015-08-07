@@ -1,3 +1,13 @@
 /*
   to be filled later
 */
+@import url(http://reset5.googlecode.com/hg/reset.min.css);
+
+ul {
+    list-style-type: none;
+}
+
+li span {
+    position: relative;
+    top: -2em;
+}
