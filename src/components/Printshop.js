@@ -3,25 +3,22 @@
  */
 
 var React = require('react');
+var AltContainer = require('alt/AltContainer');
+
 var Preview = require('./Preview');
 var Showcase = require('./Showcase');
 
-var Printshop = React.createClass({
+var PreviewStore = require('../flux/stores/PreviewStore');
 
-    getInitialState() {
-        return {
-            preview: {src: '/thumbnails/P1000101.jpg', descr: 'This is a description'}
-        }
-    },
+var Printshop = React.createClass({
 
     render() {
         return (
           <div className="content">
               <div className="row">
-                  <Preview
-                      src={this.state.preview.src}
-                      descr={this.state.preview.descr}
-                  />
+                  <AltContainer store={PreviewStore}>
+                    <Preview />
+                  </AltContainer>
                   <Showcase />
               </div>
           </div>

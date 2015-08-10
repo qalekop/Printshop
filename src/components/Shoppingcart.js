@@ -5,7 +5,6 @@ var React = require('react');
 
 var ShoppingCart = React.createClass({
     render() {
-        console.log('ShoppingCart.render');
         return (
             <div>Yes I`m a shopping cart</div>
         )

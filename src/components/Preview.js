@@ -5,7 +5,6 @@ var React = require('react');
 
 var Preview = React.createClass({
     render() {
-        console.log('Preview.render');
         var outerClassName = 'col-md-4 col-md-offset-1';
         if (!this.props.src) {
             return(
@@ -21,6 +20,8 @@ var Preview = React.createClass({
                 </div>
             )
         } else {
+            var imgSrc = '/gallery/' + this.props.src;
+
             return (
                 <div className={outerClassName}>
                     <h1>Lorem Ipsum</h1>
@@ -31,8 +32,8 @@ var Preview = React.createClass({
                         fringilla, urna nisi facilisis sapien,
                         in eleifend urna tellus non libero. Quisque sit amet finibus neque, eget condimentum nisi.
                     </div>
-                    <img src={this.props.src}/>
-                    <h6>{this.props.descr}</h6>
+                    <img src={imgSrc}/>
+                    <h6>{this.props.description}</h6>
                 </div>
             )
         }

@@ -6,14 +6,19 @@ var AltContainer = require('alt/AltContainer');
 
 var ShoppingCart = require('./Shoppingcart');
 var ItemStore = require('../flux/stores/ItemStore');
+var ItemActions = require('../flux/actions/ItemActions');
 
 var Item = React.createClass({
+
+    handleClick() {
+        ItemActions.itemSelected(this.props.src);
+    },
+
     // todo add 'Buy' button and bind it to Event system
     render() {
-        console.log('Item.render: ' + this.props.src);
         var thumbnailSource = '/thumbnails/' + this.props.src;
         return(
-            <li>
+            <li onClick={this.handleClick}>
                 <img src={thumbnailSource}/>
                 <span>{this.props.descr}</span>
             </li>
@@ -29,7 +34,7 @@ var Items = React.createClass({
             <ul>
                 {this.props.items.map((item, i) => {
                     return (
-                        <Item key={item.id} src={item.src} descr={item.descr}/>
+                        <Item key={item.src} src={item.src} descr={item.descr}/>
                     );
                 })}
             </ul>
@@ -40,12 +45,10 @@ var Items = React.createClass({
 var Showcase = React.createClass({
 
     componentDidMount() {
-        console.log('Showcase.componentDidMount()');
         ItemStore.fetchItems();
     },
 
     render() {
-        console.log('Showcase.render');
         var outerClassName = 'col-md-6';
         return (
             <div className={outerClassName}>

@@ -20,7 +20,6 @@ class ItemStore {
     }
 
     handleGetItems(items) {
-        console.log('ItemStore.handleGetItems');
         this.items = items;
         this.errorMessage = null;
     }

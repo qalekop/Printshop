@@ -12,6 +12,10 @@ class ItemActions {
     fetchFailed(errorMessage) {
         this.dispatch(errorMessage);
     }
+
+    itemSelected(src) {
+        this.dispatch(src);
+    }
 }
 
 module.exports = alt.createActions(ItemActions);
