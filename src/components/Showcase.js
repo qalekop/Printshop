@@ -5,6 +5,7 @@ var React = require('react');
 var AltContainer = require('alt/AltContainer');
 
 var ShoppingCart = require('./Shoppingcart');
+var Button = require('./Button');
 var ItemStore = require('../flux/stores/ItemStore');
 var ItemActions = require('../flux/actions/ItemActions');
 
@@ -14,13 +15,13 @@ var Item = React.createClass({
         ItemActions.itemSelected(this.props.src);
     },
 
-    // todo add 'Buy' button and bind it to Event system
     render() {
         var thumbnailSource = '/thumbnails/' + this.props.src;
         return(
             <li onClick={this.handleClick}>
                 <img src={thumbnailSource}/>
                 <span>{this.props.descr}</span>
+                <Button itemId={this.props.src}/>
             </li>
         )
     }

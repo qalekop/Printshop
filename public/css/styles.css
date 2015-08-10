@@ -4,7 +4,16 @@ ul {
     list-style-type: none;
 }
 
-li span {
+li span{
     position: relative;
     top: -2em;
+}
+
+li button {
+    width: 5em;
+    float: right;
+    /*
+    height: 2em;
+    vertical-align: middle;
+    */
 }
