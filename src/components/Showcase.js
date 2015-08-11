@@ -7,6 +7,7 @@ var AltContainer = require('alt/AltContainer');
 var ShoppingCart = require('./Shoppingcart');
 var Button = require('./Button');
 var ItemStore = require('../flux/stores/ItemStore');
+var ShoppingCartStore = require('../flux/stores/ShoppingCartStore');
 var ItemActions = require('../flux/actions/ItemActions');
 
 var Item = React.createClass({
@@ -17,8 +18,9 @@ var Item = React.createClass({
 
     render() {
         var thumbnailSource = '/thumbnails/' + this.props.src;
+        var className = this.props.index % 2 == 0 ? 'bg-success' : 'bg-info';
         return(
-            <li onClick={this.handleClick}>
+            <li onClick={this.handleClick} className={className}>
                 <img src={thumbnailSource}/>
                 <span>{this.props.descr}</span>
                 <Button itemId={this.props.src}/>
@@ -35,7 +37,7 @@ var Items = React.createClass({
             <ul>
                 {this.props.items.map((item, i) => {
                     return (
-                        <Item key={item.src} src={item.src} descr={item.descr}/>
+                        <Item key={i} src={item.src} descr={item.descr} index={i}/>
                     );
                 })}
             </ul>
@@ -53,20 +55,22 @@ var Showcase = React.createClass({
         var outerClassName = 'col-md-6';
         return (
             <div className={outerClassName}>
-                <h2>
+                <h3>
                     Praesent consequat.
-                </h2>
-                <div className="content">
+                </h3>
+                <p>
                     Curabitur posuere posuere facilisis. Aliquam sodales sagittis purus vel luctus.
                     Morbi quis diam sodales sapien ultrices bibendum. Aenean suscipit purus id ultrices posuere.
                     Praesent fringilla tempor erat, et vulputate purus. Nulla dictum, felis quis tincidunt tempor, mi
                     diam luctus orci, vitae commodo ante arcu in nunc. Ut ornare neque in tellus pulvinar,
                     eu ultrices est consectetur.
-                </div>
+                </p>
                 <AltContainer store={ItemStore}>
                     <Items/>
                 </AltContainer>
-                <ShoppingCart />
+                <AltContainer store={ShoppingCartStore}>
+                    <ShoppingCart />
+                </AltContainer>
             </div>
         )
     }

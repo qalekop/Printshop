@@ -5,9 +5,25 @@ var React = require('react');
 
 var ShoppingCart = React.createClass({
     render() {
-        return (
-            <div>Yes I`m a shopping cart</div>
-        )
+        if (!this.props.items || this.props.items.length == 0) {
+            return (
+                <h4>Your shopping cart is empty</h4>
+            )
+        } else {
+            return (
+                <div>
+                    <h4>Yor shopping cart includes:</h4>
+                    <ul>
+                        {this.props.items.map((item, i) => {
+                            var className = i % 2 == 0 ? 'bg-primary' : 'bg-warning';
+                            return (
+                                <li key={i} className={className}>{item}</li>
+                            )
+                        })}
+                    </ul>
+                </div>
+            )
+        }
     }
 });
 

@@ -16,6 +16,14 @@ class ItemActions {
     itemSelected(src) {
         this.dispatch(src);
     }
+
+    itemAdded(src) {
+        this.dispatch(src);
+    }
+
+    itemRemoved(src) {
+        this.dispatch(src);
+    }
 }
 
 module.exports = alt.createActions(ItemActions);
