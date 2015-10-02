@@ -2,6 +2,11 @@
 @import url(http://reset5.googlecode.com/hg/reset.min.css);
 */
 
+body {
+    background-image: url(/images/bg.jpg);
+    background-size: 100% 100%;
+}
+
 ul {
     list-style-type: none;
 }

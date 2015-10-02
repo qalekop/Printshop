@@ -18,7 +18,7 @@ var Item = React.createClass({
 
     render() {
         var thumbnailSource = '/thumbnails/' + this.props.src;
-        var className = this.props.index % 2 == 0 ? 'bg-success' : 'bg-info';
+        var className = this.props.index % 2 ? 'bg-success' : 'bg-info';
         return(
             <li onClick={this.handleClick} className={className}>
                 <img src={thumbnailSource}/>

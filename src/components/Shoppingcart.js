@@ -15,7 +15,7 @@ var ShoppingCart = React.createClass({
                     <h4>Yor shopping cart includes:</h4>
                     <ul>
                         {this.props.items.map((item, i) => {
-                            var className = i % 2 == 0 ? 'bg-primary' : 'bg-warning';
+                            var className = i % 2 ? 'bg-primary' : 'bg-warning';
                             return (
                                 <li key={i} className={className}>{item}</li>
                             )
